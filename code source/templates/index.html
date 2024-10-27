@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	</head>
+	<body>
+		<div class="grid-container">
+		  <header class="header">
+			<p id="dash-title">
+				Tableau de bord de l'université.
+			</p>
+			<button id="btn_refresh" onclick="loadData()">
+				Actualiser
+			</button>
+		  </header>
+		  <aside class="sidenav">
+			<div id="logo">
+				<img src="{{url_for('static', filename='img/logo_.jpg')}}" height="40px" width="40px"/>
+				<p>Université de PRAVAN</p>
+
+			</div>
+			<div id="menu">
+				<div><p>Sommaire</p></div>
+				<div><p>Ajouter</p></div>
+				<div><p>Déconnexion</p></div>
+			</div>
+		  </aside>
+		  <main class="main">
+			<div class="card" id="card1">
+				<div class="card-header">
+					<p>Nombre d'étudiants qui réussissent chaque annéé</p>
+				</div>
+				<div class="card-content" id="cardTable">
+					<div class="bigNumber" id="ann1">
+						<p class="annLabel"></p>
+						<p class="annPop"></p>
+					</div>
+					<div class="bigNumber" id="ann2">
+						<p class="annLabel"></p>
+						<p class="annPop"></p>
+					</div>
+					<div class="bigNumber" id="ann3">
+						<p class="annLabel"></p>
+						<p class="annPop"></p>
+					</div>
+				</div>
+			</div>
+			<div class="card" id="card2">
+				<div class="card-header">
+					<p>Bar Chart: Nombre d'étudiants par année</p>
+				</div>
+				<div class="card-content">
+					<canvas id="bar-chart" height="220" width="380"></canvas>
+				</div>
+			</div>
+			<div class="card" id="card3">
+				<div class="card-header">
+					<p>Line Chart: L’évolution du nombre d’étudiants dans une spécialité, par années</p>
+				</div>
+				<div class="card-content" >
+					<canvas id="line-chart" height="300" width="800"></canvas>
+				</div>
+			</div>
+			<div class="card" id="card4">
+				<div class="card-header">
+					<p>Pie Chart:Distribution d'étudiants selon leurs Sexe</p>
+				</div>
+				<div class="card-content" >
+					<canvas id="pie-chart" height="210" width="400"></canvas>
+				</div>
+			</div>
+		  </main>
+		  <footer class="footer">
+			  <p align="center">Copyright 2021/2022</p>
+
+		  </footer>
+		</div>
+
+		<script src="{{url_for('static', filename='script.js')}}"></script>
+	</body>
+</html>
